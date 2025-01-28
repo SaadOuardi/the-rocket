@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
+
 import UserProvider from './components/Authentication/UserContext/UserProvider';
 import { Header } from './components/User/Main/Header/Header';
 import { Navbar } from './components/User/Main/Navbar/Navbar';
@@ -40,7 +41,7 @@ const App = () => {
 
     return (
         <UserProvider>
-            <Router>
+            <Router basename="/the-rocket">
                 <Header/>
                 <div className='side-0'>
                     <Navbar/>
