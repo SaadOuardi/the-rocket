@@ -1,0 +1,71 @@
+.Member{
+    width: 1200px;
+    .Member-Content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .Header{
+            width: 100%;
+        }
+        .Body{
+            width: 100%;
+        }
+        .Footer{
+            width: 100%;
+            .Footer-Content{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+.Profile-Cover{
+    position: relative;
+    .Profile-Pictire{
+        position: absolute;
+        top: 80%;
+        left: 10%;
+    }
+}
+
+//----------------------MOBILE VERSION----------------------//
+@media screen and (max-width:768px) {
+    .Profile-Cover{
+        .Profile-Pictire{
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
+}
+/*----------------------TABLET DEVICES----------------------*/
+@media only screen and (max-width: 768px ) and (max-width:1023px){
+    .Profile-Cover{
+        .Profile-Pictire{
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
+}
+/*----------------------LAPTOP DEVICES----------------------*/
+@media only screen and (max-width: 1024px ) and (max-width:1439px){
+    .Profile-Cover{
+        .Profile-Pictire{
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
+}
+/*----------------------DESCKTOP DEVICES----------------------*/
+@media only screen and(max-width: 1440px ){
+}
+
+

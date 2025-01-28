@@ -1,0 +1,61 @@
+.Navbar{
+    width: 100%;
+    background-color: var(--dark-secondary-bg);
+    border-top: 1px solid rgb(111, 111, 111);
+    padding: 5px;
+    display: none;
+    position: fixed;
+    bottom: 0;
+    z-index: 90000000;
+    a{
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 30px;
+    }
+    .Navbar__container{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        a{
+            img{
+                height: 35px;
+                width: 35px;
+            }
+            svg{
+                height: 25px;
+                width: 25px;
+            }
+        }
+        a:hover{
+            svg{
+                height: 28px;
+                width: 28px;
+            }
+        }
+    }
+}
+/*---------------------- MOBILE VERSION----------------------*/
+@media screen and (max-width: 768px){
+    .Navbar{
+        display: block;
+    }
+}
+/* ----------- TABLET DEVICES----------- */
+@media only screen and (max-width: 768px ) and (max-width:1023px){
+    .Navbar{
+        display: block;
+    }
+}
+/* ----------- LAPTOP DEVICES----------- */
+@media only screen and (max-width: 1024px ) and (max-width:1439px){
+    .Navbar{
+        display: block;
+    }
+}
+/* ----------- DESCKTOP DEVICES----------- */
+@media only screen and(max-width: 1440px ){
+}

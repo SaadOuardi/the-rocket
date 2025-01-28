@@ -1,0 +1,54 @@
+.Profile{
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    svg{
+        height: 30px;
+        width: 30px;
+    }
+
+    img{
+        height: 150px;
+        width: 150px;
+        border-radius: 100px;
+        border: 4px solid var(--secondary-bgColor-bm);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .Details-Options{
+        position: absolute;
+        top: 60%;
+        right: 0;
+    }
+}
+.Profile:hover{
+    img{
+        filter: brightness(60%);
+    }
+}
+
+
+
+//----------------------MOBILE VERSION----------------------//
+@media screen and (max-width:768px) {
+    .Profile{    
+        .Details-Options{
+            position: absolute;
+            top: 60%;
+            right: 0;
+        }
+    }
+
+}
+/*----------------------TABLET DEVICES----------------------*/
+@media only screen and (max-width: 768px ) and (max-width:1023px){
+}
+
+/*----------------------LAPTOP DEVICES----------------------*/
+@media only screen and (max-width: 1024px ) and (max-width:1439px){
+
+}
+
+/*----------------------DESCKTOP DEVICES----------------------*/
+@media only screen and(max-width: 1440px ){
+
+}

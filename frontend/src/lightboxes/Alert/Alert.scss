@@ -1,0 +1,24 @@
+.Alert{
+    .Alert-Content{
+        height: 50px;
+        width: 300px;
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        position: fixed;
+        top: 88%;
+        left: 1%;
+        animation: Alert .2s linear;
+        svg{
+            height: 30px;
+            width: 30px;
+            color: white;
+        }
+        h1{
+            font-size: 13px;
+            color: white;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+header{
+    background-color: var(--dark-secondary-bg);
+    padding: 5px 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100000;
+    border-bottom: .5px solid rgb(154, 154, 154);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .Header{
+        width: 1440px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .HeaderNavbar{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+
+        .SecondHeaderNavbar{
+            display: flex;
+            gap: 8px;
+            .Icon-Bg{
+                background-color: transparent;
+                border-radius: 9px;
+                padding: 5px 25px;
+                svg{
+                    height: 30px;
+                    width: 30px;
+                }
+            }
+            .Icon-Bg:hover{
+                background-color: rgb(199, 199, 199);
+            }
+            .Active{
+                border-bottom: 4px solid blue;
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+.User{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .Options{
+        display: flex;
+        gap: 10px;
+    }
+}
+
+//----------------------MOBILE VERSION----------------------//
+@media screen and (max-width:768px) {
+
+}
+/*----------------------TABLET DEVICES----------------------*/
+@media only screen and (max-width: 768px ) and (max-width:1023px){
+}
+
+/*----------------------LAPTOP DEVICES----------------------*/
+@media only screen and (max-width: 1024px ) and (max-width:1439px){
+    .User{
+        padding: 70px 0 0 0;
+    }
+}
+
+/*----------------------DESCKTOP DEVICES----------------------*/
+@media only screen and(max-width: 1440px ){
+
+}

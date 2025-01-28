@@ -1,0 +1,85 @@
+.photo {
+    height: 300px;
+    width: 300px;
+    position: relative;
+    cursor: pointer;
+
+    img {
+        height: 100%;
+        width: 100%;
+    }
+
+    .photo-hover {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.photo:hover {
+    img {
+        filter: blur(2px) brightness(80%);
+    }
+    
+    .photo-hover {
+        display: flex;
+    }
+}
+
+.photo-cover-container {
+    width: 100%;
+    background-color: rgba(83, 80, 80, 0.546);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9;
+    border: 2px solid white;
+
+    button.close {
+        background-color: red;
+        height: 20px;
+        width: 20px;
+        padding: 25px;
+        border-radius: 50px;
+    }
+
+    .btn-cover-container,
+    .comment-section {
+        height: 600px;
+        width: 600px;
+    }
+    .btn-cover-container {
+        background-color: rgb(78, 211, 30);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img.photo-cover {
+            height: 100%;
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+    }
+
+    .comment-section {
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        .Comment-Content {
+            justify-content: start;
+        }
+        .comment-list {
+            padding: 10px ;
+            flex: 1;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+li.liked{
+    background-color: rgb(0, 145, 255) !important;
+}
+
+.default-like {
+    background-color: rgb(0, 145, 255) !important;
+    height: fit-content !important;
+    width: fit-content !important;
+    svg {
+        height: 15px !important;
+        width: 15px !important;
+    }
+}
+
+/*----------------------MOBILE DEVICES----------------------*/
+@media screen and (max-width: 768px){
+    li.liked {
+        background-color: rgb(0, 145, 255) !important;
+        .Icon-Bg {
+            background-color: rgb(0, 145, 255) !important;
+        }
+    }
+}
+/*----------------------TABLET DEVICES----------------------*/
+@media only screen and (max-width: 768px ) and (max-width:1023px){
+}
+/*----------------------LAPTOP DEVICES----------------------*/
+@media only screen and (max-width: 1024px ) and (max-width:1439px){
+}
+/*----------------------DESCKTOP DEVICES----------------------*/
+@media only screen and (max-width: 1440px ){
+}

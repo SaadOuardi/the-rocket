@@ -1,0 +1,48 @@
+.Notification{
+    transition: all 0.3s linear;
+    cursor: pointer;
+    padding: 20px 0;
+    .Notification-Content{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+    }
+    .Profile-Picture{
+        width: fit-content !important;
+        padding: 0 10px;
+    }
+    .User-Data{
+        width: fit-content !important;
+        p.Name{
+            font-size: 20px;
+        }
+        p{
+            font-size: 10px;
+        }
+        p.Action{
+            font-size: 12px;
+        }
+        p.Time{
+            color: rgb(0, 38, 255);
+        }
+    }
+    .Action-Bg{
+        width: fit-content !important;
+        padding: 0 20px;
+        img{
+            height: 40px;
+            width: 40px;
+        }
+    }
+    .Icon-Bg{
+        padding: 8px;
+        height: fit-content;
+        width: fit-content !important;
+        
+    }
+
+}
+.Notification:hover{
+    border-radius: 9px;
+    background-color: var(--dark-hover-effect);
+}

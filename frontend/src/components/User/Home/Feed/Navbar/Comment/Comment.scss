@@ -1,0 +1,72 @@
+.comments-List{
+    align-items: start !important;
+    flex-direction: column;
+    gap: 10px;
+    height: 400px;
+    overflow: scroll;
+}
+.comment-Content{
+    justify-content: start;
+    padding: 0 20px;
+}
+.comment-List{
+    width: 500px;
+    box-shadow: .2px .2px 5px white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px;
+    z-index: 999999;
+    .comment-List-Content{
+        position: relative;
+        .Icon-Bg{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+        }
+    }
+    .Header{
+        .Header-Contnet{
+            position: relative;
+            button{
+                position: absolute;
+                top: 50%;
+                right: 0px;
+                transform: translate(-50%, -50%);
+                border-radius: 100px;
+                height: 30px;
+                width: 30px;
+                padding: 10px;
+            }
+        }
+    }
+}
+.UserProfile_Container{
+    background-color: red;
+    align-items: start !important;
+}
+.comment-Container{
+    //background-color: rgb(208, 208, 208) !important;
+    color: black !important;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+} 
+.UserReply{
+    position: relative;
+    button{
+        height: 20px;
+        width: 20px;
+        padding: 5px;
+        border-radius: 100px;
+        background-color: red;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translate(-50%, -50%);
+    }
+}

@@ -1,0 +1,161 @@
+.feed-navbar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .Icon-Bg{
+        height: 25px;
+        width: 25px;
+        svg{
+            height: 18px;
+            width: 18px;
+        }
+    }
+    .feed-navbar-container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5px;
+        li{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            padding: 0px 20px;
+            border-radius: 4px;
+            gap: 2px;
+            .Icon-Bg{
+                background-color: transparent !important;
+                svg{
+                    color: white;
+                }
+            }
+            h3{
+                font-size: 18px;
+            }
+
+            *{
+                transition: all 0.3s ease-in;
+            }
+        }
+
+        li:hover {
+            background-color: rgb(116, 115, 115) !important;
+        }
+    }
+}
+
+/*----------------------MOBILE DEVICES----------------------*/
+@media screen and (max-width: 768px) {
+    .feed-navbar{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .Icon-Bg{
+            height: 25px;
+            width: 25px;
+            svg{
+                height: 18px;
+                width: 18px;
+            }
+        }
+        .feed-navbar-container{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 5px;
+            li {
+                background-color: transparent !important;;
+                width: fit-content !important;
+                padding: 0;
+
+                .Icon-Bg {
+                    background-color: var(--dark-button-bg);
+                    padding: 5px !important;
+                }
+
+                span{
+                    display: none !important;
+                }
+
+                .count {
+                    display: none !important;
+                    span{
+                        display: none;
+                    }
+                }
+            }
+
+            li.liked {
+                .Icon-Bg {
+                    background-color: rgb(0, 145, 255) !important;
+                }
+            }
+
+            li:hover {
+                background-color: transparent !important;
+            }
+        }
+    }
+}
+/*----------------------TABLET DEVICES----------------------*/
+@media only screen and (max-width: 768px ) and (max-width:1023px) {
+    .feed-navbar{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .Icon-Bg{
+            height: 25px;
+            width: 25px;
+            svg{
+                height: 18px;
+                width: 18px;
+            }
+        }
+        .feed-navbar-container{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 5px;
+
+            li {
+                gap: 5px;
+
+                span{
+                    display: block;
+                }
+
+                .count {
+                    h3 {
+                        display: flex;
+                        gap: 2px;
+                    }
+                    span{
+                        display: block;
+                    }
+                }
+            }
+
+            li.liked {
+                .Icon-Bg {
+                    background-color: rgb(0, 145, 255) !important;
+                }
+            }
+
+            li:hover {
+                background-color: transparent !important;
+            }
+        }
+    }
+}
+/*----------------------LAPTOP DEVICES----------------------*/
+@media only screen and (max-width: 1024px ) and (max-width:1439px){
+}
+/*----------------------DESCKTOP DEVICES----------------------*/
+@media only screen and (max-width: 1440px ){
+}
