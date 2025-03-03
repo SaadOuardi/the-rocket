@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import Google from '../../../assets/images/socialmedia/google.png';
 import Apple from '../../../assets/images/socialmedia/apple.png';
 
@@ -80,11 +80,7 @@ const Login = () => {
 
                     <div className="Footer">
                         <div className='create-new-account flex-center-center flex-column'>
-                            <p>Don't have an account yet?</p>
-
-                            <a href="/signup">
-                                <button>Create new account</button>
-                            </a>
+                            <p>Don't have an account yet? <a href="/signup">Sign up</a></p>
                         </div>
                         <div className='continue-with-container flex-center-center'>
                             <hr/>

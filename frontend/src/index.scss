@@ -629,6 +629,13 @@ form{
   input[type="submit"]:hover{
     background-color: var(--button-hover-bg);
   }
+
+  .fullname-container {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+  }
+
   .input-container{
     width: 100%;
     position: relative;
