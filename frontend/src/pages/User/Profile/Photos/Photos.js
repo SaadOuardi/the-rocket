@@ -7,7 +7,6 @@ import Photo3 from '../../../../assets/images/account/photos/photo-3.jpg';
 import Photo4 from '../../../../assets/images/account/photos/photo-4.jpg';
 import Photo5 from '../../../../assets/images/account/photos/photo-5.jpg';
 import Photo6 from '../../../../assets/images/account/photos/photo-6.jpg';
-
 import './Photos.scss';
 
 const Photos = ({userID}) => {
@@ -58,12 +57,6 @@ function Photo({Image, Likes, Comments}) {
             </div>
             {imageCover &&
                 <div className='photo-cover-container'>
-                    {/* <button 
-                        onClick={handleImageCover}
-                        className='close'
-                    >
-                        X
-                    </button> */}
 
                     <div className='btn-cover-container'>
                         <img src={Image} alt='' className='photo-cover'/>
@@ -78,32 +71,56 @@ function Photo({Image, Likes, Comments}) {
                                 />
                                 <p>Saad Ouardi</p>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16"><path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/></svg>
-                                <button>Follow</button>
+                                <button
+                                    className='follow-btn'
+                                >Follow</button>
                             </div>
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/></svg>
+                            <div className='flex-center-center'>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/></svg>
+                                </div>
+                                <div>
+                                    <button 
+                                        onClick={handleImageCover}
+                                        className='close-btn'
+                                    >
+                                        X
+                                    </button>
+                                </div>
+
                             </div>
                         </div>
                         <hr/>
                         <div className='comment-list Scroll'>
-                            <UserComment Profile={Image} Username='Elen Musk' Comment='Soon!' Time='14h'/>
-                            <UserComment Profile={Image} Username='Elen Musk' Comment='Soon!' Time='14h'/>
-                            <UserComment Profile={Image} Username='Elen Musk' Comment='Soon!' Time='14h'/>
-                            <UserComment Profile={Image} Username='Elen Musk' Comment='Soon!' Time='14h'/>
-                            <UserComment Profile={Image} Username='Elen Musk' Comment='Soon!' Time='14h'/>
+                            <div className='user-comment'>
+                                
+                            </div>
+
+                            {/* <UserComment Profile={Image} Username='Elon Musk' Comment='Soon!' Time='14h'/>
+                            <UserComment Profile={Image} Username='Elon Musk' Comment='Soon!' Time='14h'/>
+                            <UserComment Profile={Image} Username='Elon Musk' Comment='Soon!' Time='14h'/>
+                            <UserComment Profile={Image} Username='Elon Musk' Comment='Soon!' Time='14h'/>
+                            <UserComment Profile={Image} Username='Elon Musk' Comment='Soon!' Time='14h'/> */}
                         </div>
                         <hr/>
-                        <div className='flex-center-center'>
-                            <img 
+                        <div className='put-comment-section flex-center-center'>
+                            {/* <img 
                                 src={Image} 
                                 alt=""
                                 className='profile' 
-                            />
+                            /> */}
                             <input 
                                 type="text"
-                                placeholder="Add a comment..." 
+                                placeholder="Add a comment..."
+                                className='comment-input'
                             />
-                            <button>Post</button>
+                            <button 
+                                className="btn comment-btn"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+                                    <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>

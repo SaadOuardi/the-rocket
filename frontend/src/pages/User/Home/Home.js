@@ -7,7 +7,6 @@ import { Follow } from '../../../components/User/Home/Follow/Follow';
 import { Trends } from '../../../components/User/Home/Trends/Trends';
 import { users } from '../../../databases/users';
 import { posts } from '../../../databases/posts';
-
 import './Home.scss';
 
 const Home = () => {

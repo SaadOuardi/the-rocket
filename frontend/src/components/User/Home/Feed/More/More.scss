@@ -6,6 +6,7 @@
             position: absolute;
             top: 100%;
             right: 20px;
+            z-index: 100;
             box-shadow: .2px .2px 5px black;
             ul{
                 li{
@@ -16,14 +17,17 @@
                     gap: 8px;
                     cursor: pointer;
                     transition: all 0.3s linear;
+
                     svg{
                         height: 30px;
                         width: 30px;
                     }
                 }
                 li:hover{
-                    background-color: rgb(199, 199, 199);
-                    // background-color: rgb(54, 54, 54);
+                    svg, 
+                    span {
+                        color: gold;
+                    }
                 }
     
                 li:first-child{

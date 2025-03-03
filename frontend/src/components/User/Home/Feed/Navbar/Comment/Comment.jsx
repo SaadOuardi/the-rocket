@@ -38,14 +38,8 @@ export const Comment = ({data}) => {
                                     <UserComment Profile={Profile} Username='Elen Musk' Comment='Soon!' Time='14h'/>
                                     <UserComment Profile={Profile1} Username='Ninja' Comment='Super Curious to see what is next!' Time='14h'/>
                                     <UserComment Profile={Profile2} Username='Tfue' Comment='Exited! it is super nice to see you glowing and taking us to the next world!' Time='14h'/>
-                                    <UserComment Profile={Profile2} Username='Tfue' Comment='Exited! it is super nice to see you glowing and taking us to the next world!' Time='14h'/>
-                                    <UserComment Profile={Profile2} Username='Tfue' Comment='Exited! it is super nice to see you glowing and taking us to the next world!' Time='14h'/>
-                                    <UserComment Profile={Profile2} Username='Tfue' Comment='Exited! it is super nice to see you glowing and taking us to the next world!' Time='14h'/>
-                                    <UserComment Profile={Profile2} Username='Tfue' Comment='Exited! it is super nice to see you glowing and taking us to the next world!' Time='14h'/>
-                                    <UserComment Profile={Profile2} Username='Tfue' Comment='Exited! it is super nice to see you glowing and taking us to the next world!' Time='14h'/>
-                                    <UserComment Profile={Profile2} Username='Tfue' Comment='Exited! it is super nice to see you glowing and taking us to the next world!' Time='14h'/>
-                                    <UserComment Profile={Profile2} Username='Tfue' Comment='Exited! it is super nice to see you glowing and taking us to the next world!' Time='14h'/>
-                                    <UserComment Profile={Profile2} Username='Tfue' Comment='Exited! it is super nice to see you glowing and taking us to the next world!' Time='14h'/>
+                                    <UserComment Profile={Profile1} Username='Tfue' Comment='Exited! it is super nice to see you glowing and taking us to the next world!' Time='14h'/>
+                                    <UserComment Profile={Profile1} Username='Tfue' Comment='Exited! it is super nice to see you glowing and taking us to the next world!' Time='14h'/>
                                 </div>
                             </div>
                             <div className='footer'>

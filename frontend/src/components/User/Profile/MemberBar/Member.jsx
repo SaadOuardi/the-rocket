@@ -29,7 +29,7 @@ export const Member = ({userID}) => {
 
     }, [])
 
-    let currentUser;
+    let currentUser = members.filter(member => member.id);
 
 
     return (

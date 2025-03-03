@@ -30,7 +30,8 @@
 
 .photo-cover-container {
     width: 100%;
-    background-color: rgba(83, 80, 80, 0.546);
+    height: 100%;
+    background-color: rgba(20, 20, 20, 0.546);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,12 +43,17 @@
     z-index: 9;
     border: 2px solid white;
 
-    button.close {
+    button.close-btn {
         background-color: red;
-        height: 20px;
-        width: 20px;
-        padding: 25px;
-        border-radius: 50px;
+        border-radius: 100px;
+        height: 40px;
+        width: 40px;
+        padding: 10px;
+    }
+
+    button.follow-btn {
+        height: 40px;
+        padding: 2px 50px;
     }
 
     .btn-cover-container,
@@ -80,6 +86,29 @@
         .comment-list {
             padding: 10px ;
             flex: 1;
+        }
+
+        .put-comment-section {
+            background-color: red;
+            height: 60px;
+            position: relative;
+
+            input.comment-input {
+                width: 100%;
+                height: 100%;
+                border-radius: 0;
+            }
+
+            button.comment-btn {
+                border-radius: 100px;
+                height: fit-content;
+                width: fit-content;
+                padding: 10px;
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
         }
     }
 }

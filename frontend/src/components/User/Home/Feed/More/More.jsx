@@ -1,23 +1,36 @@
-import React , { useState } from 'react';
-
+import React, { useState } from 'react';
 import './More.scss';
 
 export const More = ({handleHidePost}) => {
     const [More,setMore] = useState(false);
-    const handleMore = () =>{
+    const handleMore = () => {
         setMore(!More);
         if(More){
             document.getElementById('More-Bg').style.backgroundColor = '';
         }else{
-            document.getElementById('More-Bg').style.backgroundColor = 'rgb(166, 166, 166)';
+            document.getElementById('More-Bg').style.backgroundColor = '';
         }
     }
+    
     return (
         <>
             <div className='More'>
                 <div className='More__container'>
-                    <div className='Icon-Bg' id='More-Bg' onClick={handleMore}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/></svg>
+                    <div 
+                        className='Icon-Bg' 
+                        id='More-Bg' 
+                        onClick={handleMore}
+                    >
+                        <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            width="16" 
+                            height="16" 
+                            fill="currentColor" 
+                            className="bi bi-three-dots" 
+                            viewBox="0 0 16 16"
+                        >
+                            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                        </svg>
                     </div>
                     { More &&
                         <div className='More__Dropdown container'>
