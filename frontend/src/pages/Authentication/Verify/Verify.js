@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { API_URL } from "../../../config";
 
 const Verify = () => {
     const [otp, setOtp] = useState("");
@@ -18,14 +19,14 @@ const Verify = () => {
     // Redirect if already logged in
     useEffect(() => {
         if (localStorage.getItem("token")) {
-            navigate("/"); 
+            navigate(`${API_URL}`); 
         }
     }, []);
 
     // Redirect unauthorized users
     useEffect(() => {
         if (!email) {
-            navigate("/signup"); // Redirect to signup if no email found
+            navigate(`${API_URL}/signup`); // Redirect to signup if no email found
         }
     }, []);
 
@@ -40,7 +41,7 @@ const Verify = () => {
     const verifyEmailWithToken = async (token) => {
         setLoading(true);
         try {
-            const response = await fetch(`http://localhost:8000/auth/verify-email?token=${token}`, {
+            const response = await fetch(`${API_URL}/auth/verify-email?token=${token}`, {
                 method: "GET",
                 headers: { "Content-Type": "application/json" }
             });
@@ -49,7 +50,7 @@ const Verify = () => {
 
             if (response.ok) {
                 setMessage("✅ Email verified successfully! Redirecting to login...");
-                setTimeout(() => navigate("/login"), 2000);
+                setTimeout(() => navigate(`${API_URL}/login`), 2000);
             } else {
                 setMessage(`❌ Verification failed: ${data.detail}`);
             }
@@ -65,7 +66,7 @@ const Verify = () => {
         setLoading(true);
 
         try {
-            const response = await fetch("http://localhost:8000/auth/verify-otp", {
+            const response = await fetch(`${API_URL}/auth/verify-otp`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email: email.trim(), otp: otp.trim() })
@@ -84,7 +85,7 @@ const Verify = () => {
                 setMessage("✅ OTP verified successfully! Redirecting...");
                 setTimeout(() => {
                     // Redirect users based on their type
-                    navigate(data.user_type === "Admin" ? "/admin" : "/");
+                    navigate(data.user_type === "admin" ? `${API_URL}/admin` : `${API_URL}`);
                 }, 2000);
             } else {
                 if (Array.isArray(data.detail)) {

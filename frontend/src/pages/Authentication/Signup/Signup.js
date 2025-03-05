@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../../../config";
 import Google from '../../../assets/images/socialmedia/google.png';
 import Apple from '../../../assets/images/socialmedia/apple.png';
 
@@ -30,7 +31,7 @@ const Signup = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch('http://localhost:8000/auth/signup', {
+            const response = await fetch(`${API_URL}/auth/signup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
@@ -44,7 +45,7 @@ const Signup = () => {
                 localStorage.setItem("userEmail", formData.email);
 
                 // Redirect to OTP verification page or show modal
-                navigate("/verify"); // Redirect to the verification page
+                navigate(`${API_URL}/verify`); // Redirect to the verification page
             } else {
                 setErrorMessage(data.detail);
             }
@@ -55,7 +56,7 @@ const Signup = () => {
 
     useEffect(() => {
         if (localStorage.getItem("token")) {
-            navigate("/");
+            navigate(`${API_URL}`);
         }
     }, []);
 
@@ -222,7 +223,7 @@ const Signup = () => {
                     </form>
                     <div>
                         <div className='create-new-account flex-center-center flex-column'>
-                            <p>You have an account? <a href="/login">Log In</a></p>
+                            <p>You have an account? <a href={`${API_URL}/login`}>Log In</a></p>
                         </div>
                         <div className='continue-with-container flex-center-center'>
                             <hr/>

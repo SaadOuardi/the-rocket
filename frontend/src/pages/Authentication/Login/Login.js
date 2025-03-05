@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../../../config";
 import Google from '../../../assets/images/socialmedia/google.png';
 import Apple from '../../../assets/images/socialmedia/apple.png';
 
@@ -30,7 +31,7 @@ const Login = () => {
         e.preventDefault();
         setErrorMessage("");
         try {
-            const response = await fetch('http://localhost:8000/auth/login', {
+            const response = await fetch(`${API_URL}/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),
@@ -46,7 +47,7 @@ const Login = () => {
             if (data.two_factor_enabled) {
                 // Store email in session storage and redirect to OTP verification
                 sessionStorage.setItem("pending_email", email);
-                navigate("/verify"); // Redirect to OTP page
+                navigate(`${API_URL}/verify`); // Redirect to OTP page
             } else {
                 // Store JWT token and user details
                 localStorage.setItem("token", data.token);
@@ -54,7 +55,7 @@ const Login = () => {
                 localStorage.setItem("user_type", data.user_type);
     
                 // Redirect to dashboard or home page
-                navigate(data.user_type === "Admin" ? "/admin" : "/")
+                navigate(data.user_type === "admin" ? `${API_URL}/admin` : `${API_URL}`)
             }
         
         } catch (error) {
@@ -86,7 +87,7 @@ const Login = () => {
                             }
                         </div>
                         <div className="forgot-password">
-                            <a href="/forgot-password">Forgot Password?</a>
+                            <a href={`${API_URL}/forgot-password`}>Forgot Password?</a>
                         </div>
                         <div className="input-container">
                             <input type="submit" value="Login In" />
@@ -97,7 +98,7 @@ const Login = () => {
 
                     <div className="Footer">
                         <div className='create-new-account flex-center-center flex-column'>
-                            <p>Don't have an account yet? <a href="/signup">Sign up</a></p>
+                            <p>Don't have an account yet? <a href={`${API_URL}/signup`}>Sign up</a></p>
                         </div>
                         <div className='continue-with-container flex-center-center'>
                             <hr/>
