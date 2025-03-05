@@ -1,27 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { UserContext } from '../../../../components/Authentication/UserContext/UserProvider';
 import { Member } from '../../../../components/User/Profile/MemberBar/Member';
 import { Feed } from '../../../../components/User/Home/Feed/Feed';
 
 const Posts = ({userID}) => {
-    const { user } = useContext(UserContext);
     const [accountData, setAccountData] = useState([]);
 
-    useEffect(() => {
-        fetch(`http://localhost:5000/api/posts/user/${user.userId}`)
-            .then(results =>{
-                if(!results.ok){
-                    throw new Error(`error! result: ${results}`)
-                }
-                return results.json();
-            })
-            .then(data =>{
-                setAccountData(data);
-            })
-            .catch(error =>{
-                console.error(`error fetching member data ${error}`)
-            })
-    }, [user.userId]);
 
     return (
         <main>

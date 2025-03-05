@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import Google from '../../../assets/images/socialmedia/google.png';
 import Apple from '../../../assets/images/socialmedia/apple.png';
 
 const Login = () => {
+    const navigate = useNavigate();
+
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -25,23 +28,37 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setErrorMessage("");
         try {
-            const response = await fetch('http://localhost:5000/api/login', {
+            const response = await fetch('http://localhost:8000/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),
             });
 
-            if (response.ok) {
-                const data = await response.json();
-                // updateUser({ userId: data.userId, userType: data.userType });
-                window.location.href = data.userType === 'Admin' ? '/admin' : '/';
-            } else {
-                const data = await response.json();
-                setErrorMessage(data.message);
+            const data = await response.json();
+            
+            if (!response.ok) {
+                setErrorMessage(data.detail || "Login failed. Please try again.");
+                return;
             }
+
+            if (data.two_factor_enabled) {
+                // Store email in session storage and redirect to OTP verification
+                sessionStorage.setItem("pending_email", email);
+                navigate("/verify"); // Redirect to OTP page
+            } else {
+                // Store JWT token and user details
+                localStorage.setItem("token", data.token);
+                localStorage.setItem("user_id", data.user_id);
+                localStorage.setItem("user_type", data.user_type);
+    
+                // Redirect to dashboard or home page
+                navigate(data.user_type === "Admin" ? "/admin" : "/")
+            }
+        
         } catch (error) {
-            setErrorMessage('An unexpected error occurred');
+            setErrorMessage('An unexpected error occurred. Please try again.');
         }
     };
 

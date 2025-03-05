@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import Google from '../../../assets/images/socialmedia/google.png';
 import Apple from '../../../assets/images/socialmedia/apple.png';
 
 const Signup = () => {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         firstname: '',
         lastname: '',
@@ -27,36 +30,34 @@ const Signup = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch('http://localhost:5000/api/signup', {
+            const response = await fetch('http://localhost:8000/auth/signup', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(
-                    { 
-                        formData, 
-                        profile_picture: 'http://localhost:5000/uploads/e54c3d0b755258d71b2018824b19c867', 
-                        cover_picture: 'http://localhost:5000/uploads/b78449f51012436a8ed9f03ccb72a1e8',
-                        bio: 'Hey there! I am using ROCKET',
-                        userType: 'user' 
-                    }
-                ),
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
             });
 
+            const data = await response.json();
+
             if(response.ok) {
-                const data = await response.json();
-                window.localStorage.setItem('token', data.token);
-                window.localStorage.setItem('loggedIn', true);
-                window.localStorage.setItem('userId', data.userId);
-                window.location.href = '/';
+                // Store user ID and email temporarily for verification
+                localStorage.setItem("userId", data.user_id);
+                localStorage.setItem("userEmail", formData.email);
+
+                // Redirect to OTP verification page or show modal
+                navigate("/verify"); // Redirect to the verification page
             } else {
-                const data = await response.json();
-                setErrorMessage(data.message);
+                setErrorMessage(data.detail);
             }
         } catch (error) {
             setErrorMessage('An unexpected error occurred. Please try again later.');
         }
     };
+
+    useEffect(() => {
+        if (localStorage.getItem("token")) {
+            navigate("/");
+        }
+    }, []);
 
     return (
         <main className='Authentication'>
@@ -81,7 +82,8 @@ const Signup = () => {
                                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
                                 </svg>
                                 <input 
-                                    type="text" 
+                                    type="text"
+                                    name='firstname'
                                     placeholder='First Name*' 
                                     onChange={handleInputChange} 
                                     required
@@ -102,7 +104,8 @@ const Signup = () => {
                                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
                                 </svg>
                                 <input 
-                                    type="text" 
+                                    type="text"
+                                    name='lastname' 
                                     placeholder='Last Name*' 
                                     onChange={handleInputChange} 
                                     required
@@ -123,7 +126,8 @@ const Signup = () => {
                                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
                                 </svg>
                             <input 
-                                type="text" 
+                                type="text"
+                                name='username'
                                 placeholder='Username*' 
                                 onChange={handleInputChange} 
                                 required
@@ -144,7 +148,8 @@ const Signup = () => {
                                 <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
                             </svg>
                             <input 
-                                type="email" 
+                                type="email"
+                                name='email'
                                 placeholder='Email*' 
                                 onChange={handleInputChange} 
                                 required
@@ -165,7 +170,8 @@ const Signup = () => {
                                     <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
                                 </svg>
                                 <input 
-                                    type="password" 
+                                    type="password"
+                                    name='password'
                                     placeholder="Password*" 
                                     id="password" 
                                     onChange={handleInputChange}

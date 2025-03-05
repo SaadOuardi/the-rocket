@@ -14,3 +14,7 @@
 ## after validation and submit click => send email for both (member & admin) : welcome new user/ you got new user
 
 ## after successful login => verification code? 'error': redirect => home
+
+## Tasks
+
+1. fix navigations

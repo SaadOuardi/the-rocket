@@ -1,2 +1,5 @@
 # the-rocket
-Social Media App
+
+## Tasks:
+
+1. **Host both of: Frontend & Backend with Database**

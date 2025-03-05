@@ -1,6 +1,7 @@
 import React, { useState , useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import DefaultImage from '../../../../../assets/images/profile/Saad.jpg';
+import Logout from '../../../../Authentication/Logout/Logout';
 import './User.scss';
 
 export const User = () => {
@@ -15,10 +16,6 @@ export const User = () => {
             setProfile(false);
         }
     }
-
-    const handleLogout = () => {
-        window.location.href = '/login';
-    };
 
     useEffect(() => {
         fetch('http://localhost:5000/api/user')
@@ -71,7 +68,7 @@ export const User = () => {
                                 Give feedback
                             </Link>
                             <hr/>
-                            <button onClick={handleLogout}>Logout</button>
+                            <Logout/>
                         </div>
                     </div>
                 }
