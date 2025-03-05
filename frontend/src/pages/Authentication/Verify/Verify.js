@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { API_URL } from "../../../config";
+import { API_URL, FRONTEND_URL } from "../../../config";
 
 const Verify = () => {
     const [otp, setOtp] = useState("");
@@ -19,14 +19,14 @@ const Verify = () => {
     // Redirect if already logged in
     useEffect(() => {
         if (localStorage.getItem("token")) {
-            navigate(`${API_URL}`); 
+            navigate(`${FRONTEND_URL}`); 
         }
     }, []);
 
     // Redirect unauthorized users
     useEffect(() => {
         if (!email) {
-            navigate(`${API_URL}/signup`); // Redirect to signup if no email found
+            navigate(`${FRONTEND_URL}/signup`); // Redirect to signup if no email found
         }
     }, []);
 
@@ -50,7 +50,7 @@ const Verify = () => {
 
             if (response.ok) {
                 setMessage("✅ Email verified successfully! Redirecting to login...");
-                setTimeout(() => navigate(`${API_URL}/login`), 2000);
+                setTimeout(() => navigate(`${FRONTEND_URL}/login`), 2000);
             } else {
                 setMessage(`❌ Verification failed: ${data.detail}`);
             }
@@ -85,7 +85,7 @@ const Verify = () => {
                 setMessage("✅ OTP verified successfully! Redirecting...");
                 setTimeout(() => {
                     // Redirect users based on their type
-                    navigate(data.user_type === "admin" ? `${API_URL}/admin` : `${API_URL}`);
+                    navigate(data.user_type === "admin" ? `${FRONTEND_URL}/admin` : `${FRONTEND_URL}`);
                 }, 2000);
             } else {
                 if (Array.isArray(data.detail)) {

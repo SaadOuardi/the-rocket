@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { API_URL } from "../../../config";
+import { API_URL, FRONTEND_URL } from "../../../config";
 import Google from '../../../assets/images/socialmedia/google.png';
 import Apple from '../../../assets/images/socialmedia/apple.png';
 
@@ -45,7 +45,7 @@ const Signup = () => {
                 localStorage.setItem("userEmail", formData.email);
 
                 // Redirect to OTP verification page or show modal
-                navigate(`${API_URL}/verify`); // Redirect to the verification page
+                navigate(`${FRONTEND_URL}/verify`); // Redirect to the verification page
             } else {
                 setErrorMessage(data.detail);
             }
@@ -56,7 +56,7 @@ const Signup = () => {
 
     useEffect(() => {
         if (localStorage.getItem("token")) {
-            navigate(`${API_URL}`);
+            navigate(`${FRONTEND_URL}`);
         }
     }, []);
 
@@ -223,7 +223,7 @@ const Signup = () => {
                     </form>
                     <div>
                         <div className='create-new-account flex-center-center flex-column'>
-                            <p>You have an account? <a href={`${API_URL}/login`}>Log In</a></p>
+                            <p>You have an account? <a href={`${FRONTEND_URL}/login`}>Log In</a></p>
                         </div>
                         <div className='continue-with-container flex-center-center'>
                             <hr/>
