@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/the-rocket/static/css/main.4a984577.css",
-    "main.js": "/the-rocket/static/js/main.b3cf0b21.js",
+    "main.js": "/the-rocket/static/js/main.de5f6a48.js",
     "static/js/453.8ab44547.chunk.js": "/the-rocket/static/js/453.8ab44547.chunk.js",
     "static/media/spacex.jpg": "/the-rocket/static/media/spacex.d2372443092412e7e19b.jpg",
     "static/media/cristiano-ronaldo.jpg": "/the-rocket/static/media/cristiano-ronaldo.cafa62dc7215fe241a40.jpg",
@@ -32,11 +32,11 @@
     "static/media/share.png": "/the-rocket/static/media/share.c7454fb05c61b06d8417.png",
     "index.html": "/the-rocket/index.html",
     "main.4a984577.css.map": "/the-rocket/static/css/main.4a984577.css.map",
-    "main.b3cf0b21.js.map": "/the-rocket/static/js/main.b3cf0b21.js.map",
+    "main.de5f6a48.js.map": "/the-rocket/static/js/main.de5f6a48.js.map",
     "453.8ab44547.chunk.js.map": "/the-rocket/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4a984577.css",
-    "static/js/main.b3cf0b21.js"
+    "static/js/main.de5f6a48.js"
   ]
 }
