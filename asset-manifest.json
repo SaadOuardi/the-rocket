@@ -1,27 +1,21 @@
 {
   "files": {
-    "main.css": "/the-rocket/static/css/main.f1084771.css",
-    "main.js": "/the-rocket/static/js/main.2189e0b0.js",
-    "static/js/453.d855a71b.chunk.js": "/the-rocket/static/js/453.d855a71b.chunk.js",
+    "main.css": "/the-rocket/static/css/main.4a984577.css",
+    "main.js": "/the-rocket/static/js/main.3a74433c.js",
+    "static/js/453.8ab44547.chunk.js": "/the-rocket/static/js/453.8ab44547.chunk.js",
     "static/media/spacex.jpg": "/the-rocket/static/media/spacex.d2372443092412e7e19b.jpg",
-    "static/media/photo-4.jpg": "/the-rocket/static/media/photo-4.f2b3681158d03472ba6f.jpg",
     "static/media/cristiano-ronaldo.jpg": "/the-rocket/static/media/cristiano-ronaldo.cafa62dc7215fe241a40.jpg",
-    "static/media/photo-3.jpg": "/the-rocket/static/media/photo-3.b1f478da6ec3b1084638.jpg",
     "static/media/Ninja.jpg": "/the-rocket/static/media/Ninja.04a0095779de4043d432.jpg",
-    "static/media/photo-6.jpg": "/the-rocket/static/media/photo-6.524ca8eb2467fd50e199.jpg",
     "static/media/elon-musk.jpg": "/the-rocket/static/media/elon-musk.df6ed8db289bf1e93ef6.jpg",
     "static/media/Saad.jpg": "/the-rocket/static/media/Saad.be2001a50ba5e16b5e99.jpg",
-    "static/media/photo-5.jpg": "/the-rocket/static/media/photo-5.be2001a50ba5e16b5e99.jpg",
     "static/media/eminem.webp": "/the-rocket/static/media/eminem.0ad117a99605f62de4cc.webp",
     "static/media/Tfue.png": "/the-rocket/static/media/Tfue.69479bc12ae1104db1f4.png",
-    "static/media/photo-1.jpg": "/the-rocket/static/media/photo-1.3df737cad77a60e5193a.jpg",
     "static/media/saad.jpg": "/the-rocket/static/media/saad.3df737cad77a60e5193a.jpg",
     "static/media/ishowspeed.jpg": "/the-rocket/static/media/ishowspeed.5739879b975aacbd5b0d.jpg",
     "static/media/tfue.jpg": "/the-rocket/static/media/tfue.bca59d2581eb68b58058.jpg",
     "static/media/imad.jpg": "/the-rocket/static/media/imad.bbfaf906210648983246.jpg",
     "static/media/fortnite.jpg": "/the-rocket/static/media/fortnite.c61e9c1dc4d503987812.jpg",
     "static/media/clix.jpeg": "/the-rocket/static/media/clix.9e5c167dc285d5d2a48b.jpeg",
-    "static/media/photo-2.jpg": "/the-rocket/static/media/photo-2.b9516f95ed99ab40a527.jpg",
     "static/media/mark-zuckerberg.jpg": "/the-rocket/static/media/mark-zuckerberg.709f2f17643a1ee018a2.jpg",
     "static/media/Flyfox.webp": "/the-rocket/static/media/Flyfox.c536d3d57737135d6349.webp",
     "static/media/Ishowspeed.jpg": "/the-rocket/static/media/Ishowspeed.ccff7d59432dac49fe25.jpg",
@@ -30,7 +24,6 @@
     "static/media/mark-zuckerberg.webp": "/the-rocket/static/media/mark-zuckerberg.f05e0cba38c1cf7d7004.webp",
     "static/media/ElonMusk.webp": "/the-rocket/static/media/ElonMusk.b0845a30a52dec5ad464.webp",
     "static/media/google.png": "/the-rocket/static/media/google.cadee8cdb0c0afb1a713.png",
-    "static/media/default-cover.png": "/the-rocket/static/media/default-cover.9d30c93d55630fcda356.png",
     "static/media/no-message.png": "/the-rocket/static/media/no-message.d89c0cb0c6567887935d.png",
     "static/media/request.png": "/the-rocket/static/media/request.cb0053ac891b8e5a1a97.png",
     "static/media/comment.png": "/the-rocket/static/media/comment.d205291be2b50572d094.png",
@@ -38,12 +31,12 @@
     "static/media/Clix.jpg": "/the-rocket/static/media/Clix.7a22c4d5812850981940.jpg",
     "static/media/share.png": "/the-rocket/static/media/share.c7454fb05c61b06d8417.png",
     "index.html": "/the-rocket/index.html",
-    "main.f1084771.css.map": "/the-rocket/static/css/main.f1084771.css.map",
-    "main.2189e0b0.js.map": "/the-rocket/static/js/main.2189e0b0.js.map",
-    "453.d855a71b.chunk.js.map": "/the-rocket/static/js/453.d855a71b.chunk.js.map"
+    "main.4a984577.css.map": "/the-rocket/static/css/main.4a984577.css.map",
+    "main.3a74433c.js.map": "/the-rocket/static/js/main.3a74433c.js.map",
+    "453.8ab44547.chunk.js.map": "/the-rocket/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f1084771.css",
-    "static/js/main.2189e0b0.js"
+    "static/css/main.4a984577.css",
+    "static/js/main.3a74433c.js"
   ]
 }
