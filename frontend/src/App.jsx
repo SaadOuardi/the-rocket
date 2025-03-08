@@ -7,6 +7,8 @@ import { Header } from './components/User/Main/Header/Header';
 import Login from './pages/Authentication/Login/Login';
 import Signup from './pages/Authentication/Signup/Signup';
 import Verify from './pages/Authentication/Verify/Verify';
+import ResetPassword from './pages/Authentication/ResetPassword/ResetPassword';
+import SetNewPassword from './pages/Authentication/SetNewPassword/SetNewPassword';
 
 // User Pages (Protected)
 import Home from './pages/User/Home/Home';
@@ -18,14 +20,15 @@ import RedirectIfAuthenticated from './components/Authentication/RedirectIfAuthe
 const App = () => {
     return (
         <Router>
-            <Header/>
-
+            {/* <Header/> */}
             <Routes>
                 {/* Public Routes */}
                 <Route element={<RedirectIfAuthenticated />}>
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/verify" element={<Verify />} />
+                    <Route path="/reset-password" element={<ResetPassword />} />
+                    <Route path="/set-new-password" element={<SetNewPassword />} />
                 </Route>
 
                 {/* Protected Routes */}

@@ -87,7 +87,7 @@ const Login = () => {
                             }
                         </div>
                         <div className="forgot-password">
-                            <a href={`${FRONTEND_URL}/forgot-password`}>Forgot Password?</a>
+                            <a href={`${FRONTEND_URL}/reset-password`}>Forgot Password?</a>
                         </div>
                         <div className="input-container">
                             <input type="submit" value="Login In" />

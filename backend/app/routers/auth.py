@@ -1,16 +1,19 @@
-from fastapi import APIRouter, Depends, HTTPException
+import datetime
+import random 
+from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, EmailStr
 from sqlalchemy.orm import Session
-from app.config.database import SessionLocal
-from app.models.user import User
-from app.schemas.user import UserCreate, UserLogin, LoginResponse
-from app.services.user_service import create_user
-from passlib.context import CryptContext
 from jose import jwt
-import datetime
+from passlib.context import CryptContext
+from app.config.database import SessionLocal, get_db
 from app.config.settings import settings
-from app.utils.email import send_verification_email
-import random 
+from app.models.user import User
+from app.services.user_service import create_user
+from app.utils.email import send_verification_email, send_password_reset_email
+from app.utils.token import create_password_reset_token, verify_password_reset_token
+from app.utils.hashing import hash_password
+from app.schemas.user import UserCreate, UserLogin, LoginResponse, validate_password
+from app.schemas.auth import PasswordResetRequest, SetNewPassword, OTPVerification
 
 SECRET_KEY = settings.SECRET_KEY
 ALGORITHM = settings.ALGORITHM
@@ -19,14 +22,6 @@ ALGORITHM = settings.ALGORITHM
 auth_router = APIRouter()
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
-# Dependency: Get database session
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 # Signup Route
 @auth_router.post("/signup")
@@ -93,12 +88,7 @@ def verify_email(token: str, db: Session = Depends(get_db)):
     
     return {"message": "Email verified successfully!"}
 
-
-# ✅ Define expected request body schema
-class OTPVerification(BaseModel):
-    email: EmailStr  # Ensures email is required and valid
-    otp: str         # Ensures OTP is required
-
+# Verify email with OTP
 @auth_router.post("/verify-otp")
 def verify_otp(data: OTPVerification, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.email == data.email, User.otp_code == data.otp).first()
@@ -109,5 +99,57 @@ def verify_otp(data: OTPVerification, db: Session = Depends(get_db)):
     user.is_verified = True
     user.otp_code = None
     db.commit()
-
+    
     return {"message": "OTP verified successfully!"}
+
+# Request Password Reset
+@auth_router.post("/reset-password", status_code=status.HTTP_200_OK)
+async def request_password_reset(request: PasswordResetRequest, db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.email == request.email).first()
+    
+    if not user:
+        raise HTTPException(status_code=404, detail="User with this email does not exist")
+
+    # Generate reset token (valid for 15 mins)
+    reset_token = create_password_reset_token(user.email)
+    
+    # Choose the correct frontend URL based on the environment
+    frontend_url = settings.get_frontend_url
+
+    # Send email with reset link
+    reset_link = f"{frontend_url}/reset-password?token={reset_token}"
+    await send_password_reset_email(user.email, reset_link)
+
+    return {"message": "Password reset link sent. Check your email."}
+
+# Set New Password
+@auth_router.post("/set-new-password", status_code=status.HTTP_200_OK)
+def set_new_password(request: SetNewPassword, db: Session = Depends(get_db)):
+    try:
+        # Verify the reset token
+        email = verify_password_reset_token(request.token)
+        if not email:
+            raise HTTPException(status_code=400, detail="Invalid or expired token")
+
+        # Find the user in the database
+        user = db.query(User).filter(User.email == email).first()
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+
+        # Validate new password using the same policy as signup
+        validate_password(request.new_password)
+
+        # Ensure new password and confirm password match
+        if request.new_password != request.confirm_password:
+            raise HTTPException(status_code=400, detail="Passwords do not match")
+
+        # Update and hash new password
+        user.password = hash_password(request.new_password)
+        db.commit()
+
+        return {"message": "Password updated successfully. You can now log in."}
+
+    except HTTPException as http_ex:
+        raise http_ex  # Re-raise HTTP exceptions with proper messages
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {str(e)}")

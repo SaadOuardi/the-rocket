@@ -76,41 +76,16 @@ async def send_verification_email(email: EmailStr, token: str = None, otp: str =
     fm = FastMail(conf)
     await fm.send_message(message)
 
+async def send_password_reset_email(email: str, reset_link: str):
+    subject = "Reset Your Password"
+    body = f"Click the link below to reset your password:\n\n{reset_link}\n\nThis link expires in 15 minutes."
+    
+    message = MessageSchema(
+        subject=subject,
+        recipients=[email],
+        body=body,
+        subtype="plain"
+    )
 
-# from fastapi_mail import FastMail, MessageSchema, ConnectionConfig
-# from pydantic import EmailStr
-# from app.config.settings import settings
-
-# conf = ConnectionConfig(
-#     MAIL_USERNAME=settings.MAIL_USERNAME,
-#     MAIL_PASSWORD=settings.MAIL_PASSWORD,
-#     MAIL_FROM=settings.MAIL_FROM,
-#     MAIL_PORT=settings.MAIL_PORT,
-#     MAIL_SERVER=settings.MAIL_SERVER,
-#     MAIL_STARTTLS=settings.MAIL_STARTTLS,  # Corrected
-#     MAIL_SSL_TLS=settings.MAIL_SSL_TLS,  # Corrected
-#     USE_CREDENTIALS=True
-# )
-
-# async def send_verification_email(email: EmailStr, token: str, otp: str):
-#     verification_url = f"{settings.FRONTEND_URL}/verify-email?token={token}"
-
-#     message = MessageSchema(
-#         subject="Verify Your Email",
-#         recipients=[email],
-#         body=f"""
-#         Hi,
-
-#         Click the link below to verify your email:
-#         {verification_url}
-
-#         Or enter this OTP: {otp}
-
-#         Regards,
-#         Rocket App Team
-#         """,
-#         subtype="plain"
-#     )
-
-#     fm = FastMail(conf)
-#     await fm.send_message(message)
+    fm = FastMail(conf)
+    await fm.send_message(message)

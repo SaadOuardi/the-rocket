@@ -1,10 +1,10 @@
 import uuid
 import random
 from sqlalchemy.orm import Session
-from app.utils.email import send_verification_email
-from app.models.user import User
 from app.schemas.user import UserCreate
+from app.models.user import User
 from app.utils.hashing import hash_password
+from app.utils.email import send_verification_email
 
 async def create_user(db: Session, user_data: UserCreate):
     # Check if email or username already exists
