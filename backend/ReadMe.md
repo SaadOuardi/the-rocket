@@ -10,6 +10,7 @@ only users could edit their own [posts, comments, profile...]
 only admin could edit all after login
 
 ## Authentication
+use cookies
 
 ### Sign up
 
@@ -20,9 +21,15 @@ only admin could edit all after login
 - display user's location(city, country) and user's device with which he was logged in
 - if user is enabled 2fa, he could verify by clicking on link or OPT code
 
+### OTP & Verification
+
+- set up a timer for resend functionalities
+- if user didn't verify delete account or keep it as none-user
+
 ## Post
 
-**post()**
+post()
+
 - add post with image
 - add post with video
 - add post with audio
@@ -31,8 +38,9 @@ only admin could edit all after login
 - add post with quote
 Posts detector (user can not post whatever he wants or speak about whatever he wants)
 
-(get)
-get posts based on
+get()
+
+- get posts based on
 
 ## Comment + Notification
 
